@@ -5,6 +5,7 @@ import com.google.samples.apps.sunflower.data.AppDatabase
 import com.google.samples.apps.sunflower.data.GardenPlantingRepository
 import com.google.samples.apps.sunflower.data.PlantRepository
 import com.google.samples.apps.sunflower.viewmodels.GardenPlantingListViewModelFactory
+import com.google.samples.apps.sunflower.viewmodels.PlantDetailViewModelFactory
 import com.google.samples.apps.sunflower.viewmodels.PlantListViewModelFactory
 
 object InjectorUtils {
@@ -33,14 +34,14 @@ object InjectorUtils {
         return PlantListViewModelFactory(repository)
     }
 
-//    fun providePlantDetailViewModelFactory(
-//        context: Context,
-//        plantId: String
-//    ): PlantDetailViewModelFactory {
-//        return PlantDetailViewModelFactory(
-//            getPlantRepository(context),
-//            getGardenPlantingRepository(context), plantId
-//        )
-//    }
+    fun providePlantDetailViewModelFactory(
+        context: Context,
+        plantId: String
+    ): PlantDetailViewModelFactory {
+        return PlantDetailViewModelFactory(
+            getPlantRepository(context),
+            getGardenPlantingRepository(context), plantId
+        )
+    }
 
 }
