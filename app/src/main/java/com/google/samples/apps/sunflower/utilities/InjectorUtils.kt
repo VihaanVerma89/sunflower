@@ -3,16 +3,18 @@ package com.google.samples.apps.sunflower.utilities
 import android.content.Context
 import com.google.samples.apps.sunflower.data.AppDatabase
 import com.google.samples.apps.sunflower.data.GardenPlantingRepository
+import com.google.samples.apps.sunflower.data.PlantRepository
 import com.google.samples.apps.sunflower.viewmodels.GardenPlantingListViewModelFactory
+import com.google.samples.apps.sunflower.viewmodels.PlantListViewModelFactory
 
 object InjectorUtils {
 
-//    private fun getPlantRepository(context: Context): PlantRepository {
-//        return PlantRepository.getInstance(
-//            AppDatabase.getInstance(context.applicationContext).plantDao()
-//        )
-//    }
-//
+    private fun getPlantRepository(context: Context): PlantRepository {
+        return PlantRepository.getInstance(
+            AppDatabase.getInstance(context.applicationContext).plantDao()
+        )
+    }
+
     private fun getGardenPlantingRepository(context: Context): GardenPlantingRepository {
         return GardenPlantingRepository.getInstance(
             AppDatabase.getInstance(context.applicationContext).gardenPlantingDao()
@@ -26,11 +28,11 @@ object InjectorUtils {
         return GardenPlantingListViewModelFactory(repository)
     }
 
-//    fun providePlantListViewModelFactory(context: Context): PlantListViewModelFactory {
-//        val repository = getPlantRepository(context)
-//        return PlantListViewModelFactory(repository)
-//    }
-//
+    fun providePlantListViewModelFactory(context: Context): PlantListViewModelFactory {
+        val repository = getPlantRepository(context)
+        return PlantListViewModelFactory(repository)
+    }
+
 //    fun providePlantDetailViewModelFactory(
 //        context: Context,
 //        plantId: String
